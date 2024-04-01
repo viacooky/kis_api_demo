@@ -152,7 +152,6 @@ def user_list(auth_data: str, access_token: str, gw_addr: str, account_db:str):
         'ItemsOfPage': 10,
     }
 
-    json_params = json.dumps(params)
 
     # 构建headers
     headers = {
@@ -168,7 +167,7 @@ def user_list(auth_data: str, access_token: str, gw_addr: str, account_db:str):
     
 
     url = f'{host}{path}?access_token={access_token}'
-    resp = requests.post(url,headers=headers,json=json_params) # 这里需要post一个json
+    resp = requests.post(url,headers=headers,json=params) # 这里需要post一个json
     return resp.json()
 
 
@@ -209,7 +208,6 @@ if __name__ == '__main__':
     # access_token = data_kingdee_auth['data']['access_token']
     # ------------- 获取KIS-Authdata -------------
 
-    
 
 
     # ------------- 业务数据接口 -------------
